@@ -10,7 +10,11 @@ export default class BoardList extends React.Component{
       <TouchableOpacity style={{
         flex:1, width:"100%", flexDirection:'row',
         borderWidth: 1
-      }}>
+      }}
+        onPress={
+          ()=>this.props.navigation.push('Detail', {item:item} )
+        }
+      >
         <Text style={{
           fontSize: 24,
           flex:2
@@ -29,6 +33,7 @@ export default class BoardList extends React.Component{
   }
 
   render(){
+
     return(
       <View style={{
         marginTop: 20,
@@ -43,7 +48,7 @@ export default class BoardList extends React.Component{
 
         <FlatList 
           data={this.props.board}
-          renderItem={this.renderBoard}
+          renderItem={this.renderBoard.bind(this)}
         />
       </View>
     )

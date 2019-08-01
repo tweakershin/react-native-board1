@@ -9,12 +9,12 @@ let board = [
   {
     key: '1',
     title: '제목1',
-    content: '내용1'
+    content: '내용1입니다.'
   },
   {
     key: '2',
     title: "제목2",
-    content: '내용2'
+    content: '내용2 안녕하세요.'
   }
 ];
 
@@ -30,7 +30,9 @@ export default class HomeScreen extends Component{
       <View style={styles.container}>
         <Text style={{color:'red', fontSize:40}}>홈 스크린!</Text>
         <MyButton title="글 작성" />
-        <BoardList board={this.state.board}/>
+        <BoardList 
+        board={this.state.board} 
+        navigation={this.props.navigation}/>
         {/* <MyButton></MyButton> */}
 
         {/* <MyButton title="글 작성" /> */}
