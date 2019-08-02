@@ -6,7 +6,9 @@ import {
 export default class BoardList extends React.Component{
 
   renderBoard({item}){
+    
     return(
+      <View>
       <TouchableOpacity style={{
         flex:1, width:"100%", flexDirection:'row',
         borderWidth: 1
@@ -29,6 +31,10 @@ export default class BoardList extends React.Component{
           {item.title}
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={()=>this.props.deleteFunc(item.key)}>
+        <Text>X</Text>
+      </TouchableOpacity>
+      </View>
     )
   }
 

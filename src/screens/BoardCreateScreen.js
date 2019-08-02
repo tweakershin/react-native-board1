@@ -11,6 +11,16 @@ export default class BoardCreateScreen extends React.Component{
     }
   }
 
+  submitBoard(){
+    const createFunc = this.props.navigation.getParam('createFunc')
+    const boardItem = {
+      title: this.state.title,
+      content: this.state.content
+    }
+    createFunc(boardItem)
+    return this.props.navigation.navigate('Home')
+  }
+
   render(){
     return(
       <View>
@@ -42,9 +52,17 @@ export default class BoardCreateScreen extends React.Component{
           }}
           placeholder="내용"
           multiline={true}
+          onChangeText={
+            (text)=>this.setState({content:text})
+            }
         />
-
-        <MyButton title="글 작성"/>
+        <Text>{this.state.content}</Text>
+        <View style={{
+          margin:20,
+          alignSelf:'flex-end'
+        }}>
+          <MyButton title="제출하기" onPress={this.submitBoard.bind(this)}/>
+        </View>
       </View>
     )
   }
