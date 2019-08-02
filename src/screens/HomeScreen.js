@@ -29,7 +29,13 @@ export default class HomeScreen extends Component{
     return(
       <View style={styles.container}>
         <Text style={{color:'red', fontSize:40}}>홈 스크린!</Text>
-        <MyButton title="글 작성" />
+
+        <MyButton title="글 작성" 
+          onPress={()=>this.props.navigation.push('Create')}
+          // navigation={this.props.navigation}
+        />
+        
+
         <BoardList 
         board={this.state.board} 
         navigation={this.props.navigation}/>

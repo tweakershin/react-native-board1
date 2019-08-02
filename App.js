@@ -28,9 +28,12 @@ const StackNavigator = createStackNavigator({
   Detail: {
     screen: DetailScreen
   },
-  BoardCreate: {
+  Create:{
     screen: BoardCreateScreen
   }
+  // BoardCreate: {
+  //   screen: BoardCreateScreen
+  // }
 });
 
 

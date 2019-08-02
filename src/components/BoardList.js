@@ -33,7 +33,7 @@ export default class BoardList extends React.Component{
   }
 
   render(){
-
+    
     return(
       <View style={{
         marginTop: 20,
