@@ -3,13 +3,46 @@ import { View, Text, TextInput } from 'react-native';
 import MyButton from '../components/MyButton';
 
 export default class BoardCreateScreen extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      title: '',
+      contennt:''
+    }
+  }
+
   render(){
     return(
       <View>
-        <Text>글 작성 스크린</Text>
+        <Text
+          style={{fontSize:30, color:'blue', textAlign:'center'}}
+        >
+          글 작성 스크린
+        </Text>
 
-        <TextInput></TextInput>
-        <TextInput></TextInput>
+        <TextInput
+          style={{
+            borderWidth:1,
+            fontSize:20,
+            height:50,
+            margin:20,
+            marginTop:30
+          }}
+          placeholder="제목"
+          onChangeText={(text)=>this.setState({title:text})}
+        />
+        <Text>{this.state.title}</Text>
+        <TextInput
+          style={{
+            borderWidth:1,
+            minHeight:300,
+            fontSize:20,
+            margin:20,
+            marginTop:30
+          }}
+          placeholder="내용"
+          multiline={true}
+        />
 
         <MyButton title="글 작성"/>
       </View>
