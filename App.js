@@ -7,6 +7,7 @@ import { createStackNavigator, createAppContainer, createBottomTabNavigator, cre
 import SettingScreen from './src/screens/SettingScreen';
 import BoardCreateScreen from './src/screens/BoardCreateScreen'
 
+import BoardEditScreen from './src/screens/BoardEditScreen';
 
 const defaultNavigationOptions = {
   headerTintColor: 'white',
@@ -30,10 +31,11 @@ const StackNavigator = createStackNavigator({
   },
   Create:{
     screen: BoardCreateScreen
+  },
+  Edit:{
+    screen: BoardEditScreen
   }
-  // BoardCreate: {
-  //   screen: BoardCreateScreen
-  // }
+  
 });
 
 

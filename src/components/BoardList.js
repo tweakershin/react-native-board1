@@ -8,9 +8,9 @@ export default class BoardList extends React.Component{
   renderBoard({item}){
     
     return(
-      <View>
+      <View style={{flex:1, flexDirection:'row'}}>
       <TouchableOpacity style={{
-        flex:1, width:"100%", flexDirection:'row',
+        flex:4, width:"100%", flexDirection:'row',
         borderWidth: 1
       }}
         onPress={
@@ -31,8 +31,24 @@ export default class BoardList extends React.Component{
           {item.title}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>this.props.deleteFunc(item.key)}>
-        <Text>X</Text>
+
+      <TouchableOpacity 
+        onPress={
+          // ()=>console.log('delete')
+          ()=>this.props.deleteFunc(item.key)
+          }
+        style={{
+          flex:1
+        }}>
+        <Text style={{fontSize:24, color:'red'}}>X</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={
+        ()=>this.props.navigation.push(
+          'Edit', {item:item, editFunc:this.props.editFunc}
+          )
+      }>
+        <Text>Edit</Text>
       </TouchableOpacity>
       </View>
     )
