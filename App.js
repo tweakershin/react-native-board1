@@ -1,64 +1,64 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
 
-import HomeScreen from './src/screens/HomeScreen'
-import DetailScreen from './src/screens/DetailScreen';
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
-import SettingScreen from './src/screens/SettingScreen';
-import BoardCreateScreen from './src/screens/BoardCreateScreen'
+import HomeScreen from "./src/screens/HomeScreen";
+import DetailScreen from "./src/screens/DetailScreen";
+import {
+  createStackNavigator,
+  createAppContainer,
+  createBottomTabNavigator
+} from "react-navigation";
+import SettingScreen from "./src/screens/SettingScreen";
+import BoardCreateScreen from "./src/screens/BoardCreateScreen";
 
-import BoardEditScreen from './src/screens/BoardEditScreen';
+import BoardEditScreen from "./src/screens/BoardEditScreen";
 
 const defaultNavigationOptions = {
-  headerTintColor: 'white',
+  headerTintColor: "white",
   tabBarOptions: {
-    activeTintColor: 'tomato',
-    inactiveTintColor: 'gray',
+    activeTintColor: "tomato",
+    inactiveTintColor: "gray",
 
     labelStyle: {
-      fontSize: 16,
-    },
-  },
-  
+      fontSize: 16
+    }
+  }
 };
 
 const StackNavigator = createStackNavigator({
   Home: {
-    screen: HomeScreen,
+    screen: HomeScreen
   },
   Detail: {
     screen: DetailScreen
   },
-  Create:{
+  Create: {
     screen: BoardCreateScreen
   },
-  Edit:{
+  Edit: {
     screen: BoardEditScreen
   }
-  
 });
 
-
-const TabNavigator = createBottomTabNavigator({
-  Home:{
-    // screen: HomeScreen,
-    screen: StackNavigator,
-    navigationOptions:{
-      title: '홈'
+const TabNavigator = createBottomTabNavigator(
+  {
+    Home: {
+      // screen: HomeScreen,
+      screen: StackNavigator,
+      navigationOptions: {
+        title: "홈"
+      }
+    },
+    Setting: {
+      screen: SettingScreen
     }
   },
-  Setting:{
-    screen: SettingScreen
+  {
+    defaultNavigationOptions
   }
-},
-{
-  defaultNavigationOptions
-})
+);
 
-const AppContainer =  createAppContainer(TabNavigator);
+const AppContainer = createAppContainer(TabNavigator);
 
-export default function App(){
-    return(
-        <AppContainer/>
-    );
+export default function App() {
+  return <AppContainer />;
 }
