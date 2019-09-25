@@ -1,19 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { View, Text, Platform } from "react-native";
+import { createStackNavigator } from "react-navigation-stack";
+import { createBottomTabNavigator } from "react-navigation-tabs";
+import { createAppContainer } from "react-navigation";
+import TabBarIcon from "./src/components/TabBarIcon";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import BoardStack from "./src/navigations/BoardStack";
+import SettingsStack from "./src/navigations/SettingsStack";
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+/*** 3. NAVIGATOR 옵션 정의 ***/
+const bottomTabNavigator = createBottomTabNavigator({
+  Home: BoardStack,
+  Settings: SettingsStack
 });
+export default createAppContainer(bottomTabNavigator);
