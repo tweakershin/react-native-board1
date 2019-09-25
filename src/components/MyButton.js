@@ -1,45 +1,34 @@
-import React, {Component} from 'react';
-import {
-  Text, TouchableOpacity, View
-} from 'react-native';
+import React, { Component } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
 
-export default class MyButton extends Component{
-  render(){
-    return(
+export default class MyButton extends Component {
+  render() {
+    return (
       <View>
-        <TouchableOpacity 
+        <TouchableOpacity
           onPress={this.props.onPress}
           style={{
-            width:100,
-            height:100,
+            width: 100,
+            height: 100
           }}
         >
-          <Text style={
-            {
-              backgroundColor: 'tomato',
-              fontSize:22,
+          <Text
+            style={{
+              backgroundColor: "tomato",
+              fontSize: 22,
               padding: 10,
-              textAlign:'center',
-              color:'white',
-              fontWeight: 'bold'
-            }
-            }>
-              {this.props.title}
-            </Text>
+              textAlign: "center",
+              color: "white",
+              fontWeight: "bold"
+            }}
+          >
+            {this.props.title}
+          </Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
-
-
-
-
-
-
-
-
-
 
 // import React from 'react';
 // import {View, TouchableOpacity, Text} from 'react-native'
@@ -48,7 +37,7 @@ export default class MyButton extends Component{
 //   render(){
 //     return(
 //       <View style={{alignSelf:'flex-end', textAlign: 'right', marginRight:10}}>
-//         <TouchableOpacity  
+//         <TouchableOpacity
 //           onPress={()=>this.props.navigation.navigate('BoardCreate',{
 //           createFunc: this.props.createFunc,
 //           board: this.props.board
@@ -62,5 +51,5 @@ export default class MyButton extends Component{
 //       </View>
 //       )
 //     }
-    
+
 //   }

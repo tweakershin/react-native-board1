@@ -32,46 +32,6 @@ export default class HomeScreen extends Component {
     };
   }
 
-  editBoard(itemKey, title, content) {
-    const newBoard = this.state.board.map(item => {
-      if (item.key == itemKey) {
-        return {
-          key: itemKey,
-          title: title,
-          content: content
-        };
-      } else {
-        return item;
-      }
-    });
-    this.setState({ board: newBoard });
-  }
-
-  deleteBoard(itemKey) {
-    const newBoard = this.state.board.filter(item => {
-      if (item.key != itemKey) {
-        return item;
-      }
-    });
-    this.setState({ board: newBoard });
-  }
-
-  createBoard(boardItem) {
-    const lastBoardId = this.state.lastBoardId + 1;
-    const itemKey = lastBoardId.toString();
-
-    this.setState({ lastBoardId: lastBoardId });
-
-    const item = {
-      key: itemKey,
-      title: boardItem.title,
-      content: boardItem.content
-    };
-    const board = this.state.board.concat(item);
-    this.setState({ board: board });
-    return;
-  }
-
   render() {
     return (
       <View style={styles.container}>

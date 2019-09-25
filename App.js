@@ -12,6 +12,9 @@ import BoardCreateScreen from "./src/screens/BoardCreateScreen";
 
 import BoardEditScreen from "./src/screens/BoardEditScreen";
 
+import { Provider } from "react-redux";
+import store from "./src/stores";
+
 const defaultNavigationOptions = {
   headerTintColor: "white",
   tabBarOptions: {
@@ -60,5 +63,9 @@ const TabNavigator = createBottomTabNavigator(
 const AppContainer = createAppContainer(TabNavigator);
 
 export default function App() {
-  return <AppContainer />;
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  );
 }
